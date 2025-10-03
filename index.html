@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Under Construction</title>
+    <style>
+        /* ----------------------------------- */
+        /* --------- 1. CSS STYLING ---------- */
+        /* ----------------------------------- */
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f4f4f4; /* Subtle background for the main page */
+        }
+
+        /* The Modal (background) */
+        .modal {
+            /* Keep it hidden until the script shows it */
+            display: none; 
+            position: fixed; 
+            z-index: 1000; /* Sit on top of everything */
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            overflow: auto; 
+            background-color: rgba(0,0,0,0.7); /* Dark semi-transparent overlay */
+        }
+
+        /* Modal Content/Box */
+        .modal-content {
+            background-color: #ffffff;
+            /* Center the modal box */
+            margin: 15% auto; 
+            padding: 30px;
+            border: 1px solid #ddd;
+            width: 90%; 
+            max-width: 500px; /* Max size for better readability */
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+            animation: fadeIn 0.5s;
+        }
+
+        /* Animation for appearance */
+        @keyframes fadeIn {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+
+        .modal-body h2 {
+            color: #ff9800; /* Construction orange */
+            font-size: 2.2em;
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }
+
+        .modal-body p {
+            color: #555;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .contact-info {
+            margin-top: 25px;
+            padding: 10px;
+            background-color: #fff3e0; /* Lighter orange background */
+            border-left: 5px solid #ff9800;
+            border-radius: 5px;
+        }
+
+        .contact-info a {
+            color: #1a73e8; /* Link blue */
+            text-decoration: none;
+        }
+
+        /* The Close Button */
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 32px;
+            font-weight: bold;
+            line-height: 1;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #333;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Style for the optional button (if you want to keep it) */
+        #openModalBtn {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <button id="openModalBtn">Check Status</button>
+
+    <div id="constructionModal" class="modal">
+
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="modal-body">
+                <h1>⚠️</h1>
+                <h2>Website Under Construction</h2>
+                <p>We're laying the foundation for something great! Our site is currently undergoing essential updates and upgrades.</p>
+                <p>We'll be back online soon. Thanks for your patience!</p>
+                <div class="contact-info">
+                    <p>For urgent inquiries, please reach us at:</p>
+                    <p>📧 **Email:** <a href="mailto:info@yourdomain.com">info@yourdomain.com</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        /* ----------------------------------- */
+        /* ------- 2. JAVASCRIPT LOGIC ------- */
+        /* ----------------------------------- */
+
+        // Get the modal element
+        const modal = document.getElementById("constructionModal");
+
+        // Get the close button element (the 'x')
+        const span = document.getElementsByClassName("close")[0];
+        
+        // Get the optional open button
+        const btn = document.getElementById("openModalBtn");
+
+        // Function to open the modal (set its display property)
+        function openModal() {
+            modal.style.display = "block";
+        }
+
+        // 1. Automatically open the modal when the page finishes loading
+        window.onload = function() {
+            openModal();
+        }
+
+        // 2. When the user clicks on (x), close the modal
+        span.onclick = function() {
+          modal.style.display = "none";
+        }
+
+        // 3. When the user clicks the open button (optional)
+        if (btn) {
+            btn.onclick = function() {
+              openModal();
+            }
+        }
+
+        // 4. When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+          if (event.target === modal) {
+            modal.style.display = "none";
+          }
+        }
+    </script>
+</body>
+</html>
